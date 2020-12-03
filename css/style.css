@@ -1,0 +1,46 @@
+body{
+    background-color: grey;
+}
+.menuNavegacion{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    z-index: auto;
+}
+#cabecera{
+    background-image: url(../img/fotoIndice.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 230px;
+   
+    background-position: center;
+    
+}
+
+  #cabecera form a{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  #cabecera a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
