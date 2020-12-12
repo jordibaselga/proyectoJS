@@ -1,0 +1,26 @@
+[
+        {
+            "nombre": "jordi",
+            "password": "123",
+            "saldo": 500,
+            "fotoCarne":"./img/persona1.jpeg"
+        },
+        {
+            "nombre": "cliente01",
+            "password": "123",
+            "saldo": 100,
+            "fotoCarne":"./img/persona1.jpeg"
+        },
+        {
+            "nombre": "cliente02",
+            "password": "123",
+            "saldo": 1000,
+            "fotoCarne":"./img/persona2.jpeg"
+        },
+        {
+            "nombre": "admin",
+            "password": "root",
+            "saldo": 10000,
+            "fotoCarne":"./img/persona2.jpeg"
+        }
+    ]
