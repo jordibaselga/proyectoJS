@@ -1,4 +1,4 @@
-export {dibujarNoticias};
+export { dibujarNoticias };
 function dibujarNoticias() {
   document.querySelector('#main').innerHTML = '';
   let noticias = document.createElement('div');

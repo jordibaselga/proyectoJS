@@ -1,4 +1,5 @@
-export {CryptoMoneda};
+
+export{bitcoin};
 function makeRequest(method, url, done) {
     var xhr = new XMLHttpRequest();
     xhr.open(method, url);
@@ -8,21 +9,24 @@ function makeRequest(method, url, done) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    makeRequest('GET', 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,EUR&api_key=1b63d79b482e225d982f01a5b8e0e52840fcf7363fe0aa636edc3c2ae97ba944',
+    makeRequest('GET', 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false',
         function (err, resultat) {
             if (err) { throw err; }
             let llista = JSON.parse(resultat);
-       
-            bitcoin = new CryptoMoneda("Bitcoin", llista.DISPLAY.BTC.EUR.PRICE,llista.DISPLAY.BTC.EUR.HIGHDAY,llista.DISPLAY.BTC.EUR.LOWDAY);
+            //console.log(llista);
+            bitcoin = new CryptoMoneda(llista[0]['name'], llista[0]['current_price'], llista[0]['max_supply']);
+            ethereum = new CryptoMoneda(llista[1]['name'], llista[1]['current_price'], llista[1]['max_supply']);
+            //console.log(bitcoin);
         }
     )
 })
 
 class CryptoMoneda {
-    constructor(name, valorActual, valorMaximo, valorMinimo) {
+    constructor(name, valorActual, valorMaximo) {
         this.name = name;
-        this.valor = valorActual = valorActual;
+        this.valor = valorActual;
         this.valorMaximo = valorMaximo;
-        this.valorMinimo = valorMinimo;
     }
+    static getName() { return this.name }
+    static setName(name) { this.name = name }
 }
