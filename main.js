@@ -1,20 +1,22 @@
-import { dibujarMonedas } from "./js/monedas.js";
-import { dibujarLogin } from "./js/login.js";
+import { dibujarMonedas } from "./js/mercado.js";
+import { dibujarLogin ,validar} from "./js/login.js";
 import { dibujarNoticias } from "./js/noticias.js";
 
-
+'use strict';
 window.addEventListener('load', () => {
-
+   
     document.querySelector('#estadisticas').addEventListener('click', () => {
         dibujarMonedas();
+        
     });
 
     document.querySelector('#login').addEventListener('click', () => {
-        document.body.innerHTML = '';
         dibujarLogin();
+        validar();
     });
-
+    
     document.querySelector('#noticias').addEventListener('click', () => {
         dibujarNoticias();
     });
+    
 });
