@@ -1,26 +1,26 @@
 [
         {
-            "nombre": "jordi",
+            "nombre": "Pepa",
             "password": "123",
-            "saldo": 500,
+            "saldo": 3000,
             "fotoCarne":"./img/persona1.jpeg"
         },
         {
-            "nombre": "cliente01",
+            "nombre": "Pepe",
             "password": "123",
-            "saldo": 100,
-            "fotoCarne":"./img/persona1.jpeg"
-        },
-        {
-            "nombre": "cliente02",
-            "password": "123",
-            "saldo": 1000,
+            "saldo": 900,
             "fotoCarne":"./img/persona2.jpeg"
         },
         {
             "nombre": "admin",
-            "password": "root",
+            "password": "123",
             "saldo": 10000,
-            "fotoCarne":"./img/persona2.jpeg"
+            "fotoCarne":"./img/persona3.jpeg"
+        },
+        {
+            "nombre": "Josefa",
+            "password": "root",
+            "saldo": 15000,
+            "fotoCarne":"./img/persona4.jpeg"
         }
     ]
