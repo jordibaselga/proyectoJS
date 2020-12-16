@@ -1,6 +1,5 @@
 export { dibujarMonedas };
 export { fotosMonedas };
-import { CryptoMoneda } from './datosCrypto.js';
 import { cartaMoneda } from "./invertir.js";
 
 const monedasImportantes = ['Bitcoin', 'Ethereum', 'XRP'];

@@ -32,14 +32,10 @@ function dibujarLogin() {
 async function validar() {
     let response = await fetch('./json/usuarios.json');
     let users = await response.json();
-    console.log(users);
-    console.log(document.querySelector('#validar'));
-
     document.querySelector('#validar').addEventListener('submit',async (event) => {
       event.preventDefault();
       let userValid = false;
       for (const user of users) {
-        console.log(user.nombre, event.target[0].value, user.password, event.target[1].value);
         if (user.nombre == event.target[0].value && user.password == event.target[1].value) {
           userValid = true;
 

@@ -1,7 +1,9 @@
 export { cartaMoneda };
 import { monedasImportantes } from './mercado.js';
 import { getUser, getCookie } from './usuario.js';
-//import {bitcoin} from './datosCrypto.js';
+import { datosMonedas} from './datosCrypto.js';
+
+let datos = datosMonedas();
 async function cartaMoneda(idMoneda) {
   let usuario = await getUser(getCookie('usuario'));
   document.querySelector('#main').innerHTML = '';
@@ -12,15 +14,15 @@ async function cartaMoneda(idMoneda) {
   switch (idMoneda) {
     case 'invertir0':
       indiceMoneda = 0;
-      valorMoneda = 100;
+      valorMoneda = 1600;
       break;
     case 'invertir1':
       indiceMoneda = 1;
-      valorMoneda = 50;
+      valorMoneda = 500;
       break;
     case 'invertir2':
       indiceMoneda = 2;
-      valorMoneda = 10;
+      valorMoneda = 100;
       break;
   }
   datosMoneda.innerHTML = `
@@ -29,7 +31,7 @@ async function cartaMoneda(idMoneda) {
         <label type="text" class="form-control">Usuario:  ${usuario.nombre}</label>
       </div><br>
       <div class="col">
-        <label type="text" class="form-control">Saldo Disponible:  ${usuario.saldo} </label>
+        <label type="text" class="form-control" id="saldo">Saldo Disponible:  ${usuario.saldo} </label>
       </div>
     </div>
     <br><br>
@@ -61,17 +63,19 @@ async function cartaMoneda(idMoneda) {
     </form>
     `;
   document.querySelector('#main').appendChild(datosMoneda);
-
   document.querySelector('#cantidadCompra').addEventListener('change', (event) => {
     if (usuario.saldo < event.target.value) {
       let avsioError = document.createElement('p');
       avsioError.textContent = 'Error al comprar. Compra superior al saldo';
       avsioError.style.color = 'red';
       document.querySelector('form').appendChild(avsioError);
-    }else{
-      let valor= document.querySelector('#valor');
-      let valorCantidad=event.target.value / valorMoneda;
-      console.log(valorCantidad);
+    } else {
+      let valor = document.querySelector('#valor');
+      let valorCantidad = event.target.value / valorMoneda;
+      let saldo = document.querySelector('#saldo');
+      let valorSaldo = usuario.saldo - event.target.value;
+      valor.innerHTML = valorCantidad;
+      saldo.innerHTML = valorSaldo;
     }
   })
 

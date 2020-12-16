@@ -1,6 +1,5 @@
 export { datosUsuario, getCookie, Usuario };
 
-let nombre = getCookie('usuario');
 
 class Usuario {
   constructor(datosUsuario) {
@@ -35,7 +34,7 @@ function getCookie(cname) {
 
 export function getUser(name) {
   return new Promise(async (resolve) => {
-    let response = await fetch('/json/usuarios.json', {});
+    let response = await fetch('./json/usuarios.json', {});
     response = await response.json();
     response.forEach(element => {
       if (name == element.nombre) {
@@ -47,17 +46,18 @@ export function getUser(name) {
 
 }
 
-function datosUsuario() {
+async function datosUsuario() {
+  let usuario =  await getUser(getCookie('usuario'));
   document.querySelector('#main').innerHTML = `
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="./img/persona2.jpeg" alt="Card image cap">
+  <div class="center">
+    <div class="card " style="width: 18rem;">
+    <img class="card-img-top" src="${usuario.fotoCarne}" alt="Card image cap">
     <div class="card-body">
-    <h1 class="card-title">${nombre}</h1>
-    <p class="card-text">Saldo Disponible: </p>
+    <h1 class="card-title">${usuario.nombre}</h1>
+    <p class="card-text">Saldo Disponible:${usuario.saldo} </p>
 
     </div>
     </div><th><br>
-   
+   </div>
     `;
-  console.log(usuario);
 }
